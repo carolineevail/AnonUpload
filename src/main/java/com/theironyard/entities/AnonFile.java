@@ -1,6 +1,7 @@
 package com.theironyard.entities;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 /**
  * Created by Caroline on 3/16/16.
@@ -18,12 +19,21 @@ public class AnonFile {
     @Column(nullable = false)
     String originalFilename;
 
+    LocalDateTime dateTime;
+
+
     public AnonFile() {
     }
+
+
 
     public AnonFile(String filename, String originalFilename) {
         this.filename = filename;
         this.originalFilename = originalFilename;
+    }
+
+    public AnonFile(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 
     public int getId() {
@@ -48,5 +58,13 @@ public class AnonFile {
 
     public void setOriginalFilename(String originalFilename) {
         this.originalFilename = originalFilename;
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 }
